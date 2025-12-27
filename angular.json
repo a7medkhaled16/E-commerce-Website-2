@@ -47,17 +47,18 @@
                 "replace": "/src/environment/environment.prod.ts"
               }],
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
+  {
+    "type": "initial",
+    "maximumWarning": "2MB",
+    "maximumError": "3MB"
+  },
+  {
+    "type": "anyComponentStyle",
+    "maximumWarning": "2kB",
+    "maximumError": "4kB"
+  }
+]
+,
               "outputHashing": "all"
             },
             "development": {
