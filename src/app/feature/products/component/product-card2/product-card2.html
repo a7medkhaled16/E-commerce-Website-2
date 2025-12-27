@@ -1,0 +1,34 @@
+
+<diV class="p-3  rounded shadow-lg hover:border hover:border-main hover:scale-105 transition duration-300 cursor-pointer" >
+    <div [routerLink]="['/product-details',product2._id]">
+        <div class="img">
+        <img [src]="product2.imageCover" alt="" class="h-[300px] w-full">
+    </div>
+    <div class="caption my-2 p-1">
+       <div class="flex justify-between aliggn-center">
+         <h3 class="text-main  font-bold line-clamp-1">{{product2.title}}</h3>
+         <button (click)="$event.stopPropagation(); addtowishlist(product2._id)">
+          <a class="cursor-pointer relative block py-2 px-3 text-red-400 rounded hover:text-red-700 md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent text-xl hover:scale-105 transition-colors duration-200"><i class="fa-solid fa-heart"></i></a>
+
+         </button>
+       </div>
+        
+
+        <p class="my-1 text-gray-500 line-clamp-1">{{product2.description}}</p>
+    </div>
+    <div class="flex justify-between my-1 p-1">
+        <p> <span>{{product2.price}} EG</span></p>
+        <p><i class="fa-solid fa-star text-rating"></i> {{product2.ratingsAverage}}</p>
+    </div>
+
+    <div class="flex justify-between my-1 p-1">
+        <p> <span>{{product2.createdAt | date}} </span></p>
+        <span class="text-red-400 ">{{product2.quantity |stockStatus}}</span>
+    </div>
+    
+    </div>
+    <div>
+        <button (click)="addprotocart()" class="main-btn">add to cart</button>
+    </div>
+    
+</diV>

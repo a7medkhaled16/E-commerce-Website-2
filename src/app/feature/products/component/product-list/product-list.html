@@ -1,0 +1,21 @@
+
+<div class="container mx-auto my-8 p-4 ">
+    <h3 class="text-2xl font-bold mx-8">Product List :_</h3>
+    <input type="text" [(ngModel)]="searchterm" class="main-input w-1/2 mx-auto my-5" placeholder="search..." >
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 my-3">
+        @for (product of productlist2 | searchPipe: searchterm ; track $index) {
+        <app-product-card2 [product2]="product" (addtocart)="addtocart($event)" />
+        }
+    </div>
+</div>
+
+<h3 #test class="main-btn p-3 w-1/4 mx-4 text-center text-xl font-bold my-5 bg-orange-500">Best selar</h3>
+@defer (on interaction (test)) {
+    <div class="container mx-auto my-4 p-4 ">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+        @for (product of productlist; track $index) {
+        <app-product-card [product]="product"/>
+        }
+    </div>
+</div>
+}

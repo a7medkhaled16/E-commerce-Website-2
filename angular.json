@@ -5,7 +5,14 @@
   "projects": {
     "My-Project": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,11 +32,20 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-            ]
+              "src/styles.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+               "node_modules/ngx-spinner/animations/ball-beat.css" ,
+               "node_modules/ngx-spinner/animations/ball-elastic-dots.css" ,
+               "node_modules/ngx-spinner/animations/ball-spin-fade.css" 
+            ],
+            "scripts": ["./node_modules/flowbite/dist/flowbite.min.js"]
           },
           "configurations": {
             "production": {
+              "fileReplacements": [{
+                "with": "/src/environment/environment.ts",
+                "replace": "/src/environment/environment.prod.ts"
+              }],
               "budgets": [
                 {
                   "type": "initial",

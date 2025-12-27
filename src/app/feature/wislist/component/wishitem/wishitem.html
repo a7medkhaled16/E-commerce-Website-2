@@ -1,0 +1,46 @@
+`
+    <div class="bg-light p-4 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300" [routerLink]="['/product-details',wishlist._id]">
+      <!-- Remove Button -->
+      <div class="relative">
+        <img 
+          [src]="wishlist.imageCover" 
+          alt="Product"
+          class="w-full h-64 object-cover"
+        />
+        
+      </div>
+
+      <!-- Product Info -->
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-1">
+          {{wishlist.title}}
+        </h3>
+        
+        <div class="flex items-center mb-3">
+          <div class="flex text-yellow-400">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+              <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+            </svg>
+            
+          </div>
+          <span class="ml-2 text-sm text-gray-600">{{wishlist.ratingsAverage}}</span>
+        </div>
+        
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-2xl font-bold text-gray-900">
+            ${{wishlist.price}}
+          </span>
+           <button (click)="$event.stopPropagation(); removefromwishList()" class="hover:scale-105 cursor-pointer text-slate-400 hover:text-red-600 transition-colors duration-200"> 
+                        <svg class="w-5 h-5 mx-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg> 
+                      </button>
+        </div>
+
+        <!-- Add to Cart Button -->
+        <button (click)="addtocart()" class="main-btn">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+ 

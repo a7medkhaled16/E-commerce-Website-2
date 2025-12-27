@@ -1,0 +1,49 @@
+<div class="bg-light rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 my-5">
+                <div class="flex gap-6">
+                  <!-- Product Image -->
+                  <div class="flex-shrink-0">
+                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center overflow-hidden">
+                      <img [src]="product.product.imageCover" alt="">
+                    </div>
+
+                  </div>
+
+                  <!-- Product Details -->
+                  <div class="flex-grow">
+                    <div class="flex justify-between items-start mb-2">
+                      <div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">{{product.product.title}}</h3>
+                        <p class="text-slate-900 mb-1">{{product.product.brand.name}}</p>
+                        <div class="flex gap-4 text-sm text-slate-600">
+                          
+                        </div>
+                      </div>
+                      <button (click)="removeitem()" class="hover:scale-105 cursor-pointer text-slate-400 hover:text-red-600 transition-colors duration-200"> 
+                        <svg class="w-5 h-5 mx-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg> Remone
+                      </button>
+                    </div>
+
+                    <div class="flex justify-between items-end mt-4">
+                      <!-- Quantity Controls -->
+                      <div class="flex items-center gap-3">
+                        <button (click)="update(product.count +1)"  class= "cursor-pointer w-8 h-8 rounded-lg border-2 flex items-center justify-center hover:scale-105 transition-colors duration-200" style="border-color: #006937; color: #006937;">
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <span class="text-lg font-semibold text-slate-900 w-8 text-center">{{product.count}}</span>
+                        <button (click)="update(product.count -1)" class="cursor-pointer w-8 h-8 rounded-lg flex items-center hover:scale-105 justify-center text-white transition-colors duration-200" style="background-color: #006937;">
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+                      </div>
+
+                      <!-- Price -->
+                      <div class="text-right">
+                        <div class="text-2xl font-bold" style="color: #006937;">${{product.price}}</div>
+                                <p><i class="fa-solid fa-star text-rating mt-4"></i> {{product.product.ratingsAverage}}</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>

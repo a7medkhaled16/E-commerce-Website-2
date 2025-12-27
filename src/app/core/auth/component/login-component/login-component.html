@@ -1,0 +1,37 @@
+<div class="max-w-xl mx-auto my-10 p-5 rounded shadow-xl mt-20">
+    <h2 class="text-2xl font-bold ">Login :</h2>
+    <form [formGroup]="authForm" (ngSubmit)="submiteform()">
+    @let emailstyle= authForm.get("email");
+    <input formControlName="email" type="email" id="email" [class]='{
+        "bg-red-50":emailstyle?.touched&&emailstyle?.invalid,
+        "border":emailstyle?.touched&&emailstyle?.invalid,
+        "border-red-900":emailstyle?.touched&&emailstyle?.invalid,
+        "text-red-900":emailstyle?.touched&&emailstyle?.invalid,
+    }'  class="main-input" placeholder="Enter your email..."/>
+    <app-validation [controls]="authForm.get('email')" />
+  
+
+    @let passwordstyle= authForm.get("password");
+    <input formControlName="password" type="password" id="password" [class]='{
+        "bg-red-50":passwordstyle?.touched&&passwordstyle?.invalid,
+        "border":passwordstyle?.touched&&passwordstyle?.invalid,
+        "border-red-900":passwordstyle?.touched&&passwordstyle?.invalid,
+        "text-red-900":passwordstyle?.touched&&passwordstyle?.invalid,
+    }' class="main-input" placeholder="Enter your password..."/>
+    <app-validation [controls]="authForm.get('password')" />
+    
+    
+
+
+    <button [disabled]="authForm.invalid || !isloading" type="submit" class="main-btn opacity-100 translate-y-0" [class.bg-gray-300]="authForm.invalid || !isloading">
+        @if (isloading) {
+            submite
+        }@else{
+            loading.....
+        }
+        
+    </button>
+      
+
+    </form>
+</div>

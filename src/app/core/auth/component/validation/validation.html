@@ -1,0 +1,58 @@
+@if (controls?.errors&&controls?.touched&&!controls?.get('rePassword')){
+     <div class="bg-red-100 border border-red-700 p-3 rounded my-2">
+        <ul>
+            @if (controls?.getError('required')) {
+            <li>required </li>
+            }
+            @if (controls?.getError('email')) {
+            <li>must match </li>
+            }
+            @if (controls?.getError('maxlength')) {
+            <li>must maxlength </li>
+            }
+            @if (controls?.getError('minlength')) {
+            <li>must minlength </li>
+            }
+             @if(controls?.getError('pattern')){
+                    <li>At least one upper case English letter</li>
+                    <li>At least one lower case English letter</li>
+                    <li>At least one digit</li>
+                    <li>At least one special character</li>
+                    <li>Minimum eight in length </li>
+                }
+           
+        </ul>
+     </div>
+    }
+
+
+@if (controls?.getError('mismatch')&&controls?.get('rePassword')?.touched) {
+<div class="bg-red-100 border border-red-700 p-3 rounded my-2">
+    <ul>
+        <li>password do not match</li>
+    </ul>
+</div>
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        

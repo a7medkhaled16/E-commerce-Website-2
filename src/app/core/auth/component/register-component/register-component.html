@@ -1,0 +1,30 @@
+<div class="max-w-xl mx-auto my-10 p-5 rounded shadow-xl">
+    <h2 class="text-2xl font-bold ">Register Now!</h2>
+    <form [formGroup]="authForm" (ngSubmit)="submiteform()">
+        
+    
+    <input formControlName="name" type="text" id="name" class="main-input" placeholder="Enter your name..."/> 
+    <app-validation [controls]="authForm.get('name')" />
+    
+    <input formControlName="email" type="email" id="email" class="main-input" placeholder="Enter your email..."/>
+    <app-validation [controls]="authForm.get('email')" />
+  
+    <input formControlName="password" type="password" id="password" class="main-input" placeholder="Enter your password..."/>
+    <app-validation [controls]="authForm.get('password')" />
+    
+    <input formControlName="rePassword" type="password" id="rePassword" class="main-input" placeholder="Enter your rePassword..."/>
+    <app-validation [controls]="authForm" />
+
+
+    <button [disabled]="authForm.invalid || !isloading" type="submit" class="main-btn opacity-100 translate-y-0" [class.bg-gray-300]="authForm.invalid || !isloading">
+        @if (isloading) {
+            submite
+        }@else{
+            loading.....
+        }
+        
+    </button>
+      
+
+    </form>
+</div>

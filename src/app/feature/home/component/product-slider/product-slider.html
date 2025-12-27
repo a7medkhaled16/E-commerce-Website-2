@@ -1,0 +1,62 @@
+
+    <section>
+        
+        <div class="w-full py-12 px-4">
+            <h3 class="text-xl font-bold mx-15 my-5">New Items :_</h3>
+      <div class="max-w-7xl mx-auto relative">
+        <!-- Left Arrow -->
+        <button
+          (click)="scrollLeft()"
+          class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-main  text-white flex items-center justify-center shadow-lg hover:bg-emerald-700 transition-colors"
+          aria-label="Previous categories">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <!-- Slider Container -->
+        <div class="overflow-hidden mx-16">
+          <div
+            #sliderTrack
+            class="flex transition-transform duration-500 ease-in-out gap-6"
+            [style.transform]="'translateX(-' + currentOffset() + 'px)'">
+            
+            @for (category of categories; track category.id) {
+              <div class=" w-40">
+                <div class="flex flex-col items-center group cursor-pointer">
+                  <!-- Circular Image Container -->
+                  <div class="w-32 h-32 rounded-full bg-gray-100 flex items-center justify-center mb-4 overflow-hidden transition-transform group-hover:scale-110">
+                    <img
+                      [src]="category.image"
+                      [alt]="category.name"
+                      class="w-20 h-20 object-contain" />
+                  </div>
+                  
+                  <!-- Category Name -->
+                  <h3 class="text-gray-900 font-medium text-center mb-1">
+                    {{ category.name }}
+                  </h3>
+                  
+                  <!-- Item Count -->
+                  <p class="text-gray-500 text-sm">
+                    {{ category.itemCount }}
+                  </p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Right Arrow -->
+        <button
+          (click)="scrollRight()"
+          class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-main  text-white flex items-center justify-center shadow-lg hover:bg-emerald-700 transition-colors"
+          aria-label="Next categories">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    </section>
+  

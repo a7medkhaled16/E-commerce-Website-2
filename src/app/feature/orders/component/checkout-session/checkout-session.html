@@ -1,0 +1,23 @@
+<div class="max-w-xl mx-auto my-10 p-5 rounded shadow-xl mt-20">
+    <h2 class="text-2xl font-bold ">Your Details :</h2>
+    <form [formGroup]="checkoutform" >
+    
+    
+    <textarea formControlName="details" class="main-input" placeholder="Your Details" name="" id=""></textarea>
+    <app-validation [controls]="checkoutform.get('details')" />
+
+    <input formControlName="phone" type="text" id="phone"  class="main-input" placeholder="Your name..."/>
+    <app-validation [controls]="checkoutform.get('phone')" />
+
+    <input formControlName="city" type="text" id="city"  class="main-input" placeholder="Your city..."/>
+    <app-validation [controls]="checkoutform.get('city')" />
+
+    
+    
+    <button type="submit" (click)="sumbite()" class="main-btn opacity-100 translate-y-0" >
+      Send
+    </button>
+      
+
+    </form>
+</div>

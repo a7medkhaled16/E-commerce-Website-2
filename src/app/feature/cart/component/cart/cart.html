@@ -1,0 +1,60 @@
+@if(loading){
+<div class="p-8 w-1/2 mx-auto">
+  <h2 class="text-main text-6xl font-bold text-center">Loading....</h2>
+</div>
+}@else{
+  @if (cartitem.length===0) {
+  <div  class="bg-white rounded-2xl  p-12 text-center">
+              <svg class="w-24 h-24 mx-auto mb-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+              </svg>
+              <h2 class="text-2xl font-bold text-slate-900 mb-2">Your cart is empty</h2>
+              <p class="text-slate-600 mb-6">Add some items to get started!</p>
+              <button routerLink="/product" class="px-8 py-3 text-white font-semibold rounded-lg hover:scale-105 cursor-pointer transition-all duration-200 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, #006937 0%, #008f4a 100%);">
+                Continue Shopping
+              </button>
+            </div>
+}@else {
+<div class="min-h-screen bg-slate-50 py-8 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-2">Shopping Cart</h1>
+          <p class="text-slate-600 font-bold">{{cartdetails.numOfCartItems}} items in your cart</p>
+          <h3 class="text-slate-600 font-bold">Total Price : {{cartdetails.data.totalCartPrice}} </h3>
+        </div>
+        <div class=" flex justify-between my-4">
+       <button > </button>
+       <button (click)="clearCart()" class="px-8 py-4 bg-red-800 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"  onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+              Clear
+            </button>
+    </div>
+         
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 my-4">
+          <!-- Cart Items Section -->
+          <div class="lg:col-span-10">
+          
+              <!-- Cart Item 1 -->
+              @for (cart of cartitem; track $index) {
+                <app-cartitem [product]="cart" (deletecart)="removeitem($event)" (updateQnt)="updateCount($event.id , $event.count)"/>
+              }
+            
+
+         
+        
+      </div>
+    </div>
+    <div class=" flex justify-between">
+       <button routerLink="/product" class="px-8 py-4 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, #006937 0%, #008f4a 100%);" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+              Browse Products
+            </button>
+
+         <button [routerLink]="['/checkout',cartdetails.cartId]" class="px-8 py-4 bg-black text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"  onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+              Go Check Out <br>${{cartdetails.data.totalCartPrice}}
+            </button>
+    </div>
+    </div>
+    </div> 
+}
+}
+ 

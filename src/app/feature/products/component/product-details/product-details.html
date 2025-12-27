@@ -1,0 +1,26 @@
+
+ <section class="my-15">
+    <div class="container px-12 mx-auto ">
+        <div class="grid sm:grid-cols-12 gap-3">
+            <div class="sm:col-span-4">
+                <img [src]="productdetails.imageCover" class="w-100 h-[350px] shadow-lg" alt="">
+            </div>
+            <div class="sm:col-span-8 my-10 p-2">
+                <div class="flex justify-between">
+                    <h2 class="text-4xl font-bold">{{productdetails.title}}</h2>
+                    <button type="button"
+                     (click)="addwishlist(productdetails._id)"  
+                      class="cursor-pointer relative block py-2 px-3 text-red-400 rounded hover:text-red-700 md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent text-4xl hover:scale-105 transition-colors duration-200">
+                         <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>  
+                 <h4 class="my-8">{{productdetails.description}}</h4>
+                <div class="flex justify-between">
+                    <span>{{productdetails.price}} EG</span>
+                    <span><i class="fa-solid fa-star text-rating"></i> {{productdetails.ratingsAverage}}</span>
+                </div>
+                <button type="button" (click)="addtocart(productdetails._id)" class="main-btn opacity-100">Add to cart</button>
+            </div>
+        </div>  
+    </div>
+</section>

@@ -1,0 +1,18 @@
+<diV class="p-3  rounded shadow-lg" >
+    <div class="img">
+        <img [src]="product.images[0]" alt="" class="h-[300px] w-full">
+    </div>
+    <div class="caption my-2 p-1">
+        <h3 class="text-main  font-bold line-clamp-1">{{product.title}}</h3>
+        <p class="my-1 text-gray-500 line-clamp-2">{{product.description}}</p>
+    </div>
+    <div class="flex justify-between my-1 p-1">
+        <p> <span>{{product.price}} EG</span></p>
+        <p><i class="fa-solid fa-star text-rating"></i> {{product.rating}}</p>
+    </div>
+    <div>
+        <!-- <button class="main-btn">add to cart</button> -->
+    </div>
+    
+
+</diV>
